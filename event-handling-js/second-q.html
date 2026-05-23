@@ -706,6 +706,12 @@
         const s1 = document.querySelector("#s1")
         const s2 = document.querySelector("#s2")
         const s3 = document.querySelector("#s3")
+
+        // const xyz = document.querySelector('#s2').getBoundingClientRect()
+
+        // console.log(xyz)
+
+        const webPageHeight = document.querySelector("html").getBoundingClientRect().height
         
         //Add an event listener for key press.
         document.addEventListener('keydown', function(e) {
@@ -721,7 +727,16 @@
             } else if (e.key == 3) {
                 //Scroll to section-3
                 s3.scrollIntoView()
-            }
+            } else if (e.key == 'b') {
+                //Scroll to Bottom of the webpage.
+                // document.documentElement.scrollTop = 
+                // document.documentElement.scrollHeight
+                window.scrollBy(0, webPageHeight)
+            } else if (e.key == 't') {
+                //Scroll to Top of the webpage.
+                // document.documentElement.scrollTop = 0
+                window.scrollBy(0, -webPageHeight)
+            } 
         })
     </script>
 </body>
