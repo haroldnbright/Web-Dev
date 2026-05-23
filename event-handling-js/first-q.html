@@ -114,7 +114,42 @@
     <!-- If user selects Action in the drop down the just show Action movies on the webpage and so on. -->
     <!-- If user selects None then show all the movies on the webpage. -->
     
-    
+    <!-- Steps : 
+    1. Identify what user is selecting in the drop down.
+    2. Get all the movies.
+    3. Compare the movie category with the category that user selected in the drop down.
+    4. Just show the movies where category is equal else hide that movie. -->
+
+    <script>
+        const dropDown = document.querySelector("select")
+
+        console.log(dropDown)
+
+        dropDown.addEventListener('change', function() {
+            const selectedValue = dropDown.value;
+
+            const allPriceTags = document.querySelectorAll(".price")
+
+            // Compare data-category value of price tag with the selected value in the drop down.
+
+            if(selectedValue == "none") {
+                for(let i = 0; i < allPriceTags.length; i++) {
+                    allPriceTags[i].parentElement.style.display = 'block'
+                }
+            } else {
+                for(let i = 0; i < allPriceTags.length; i++) {
+                if(allPriceTags[i].getAttribute('data-category') == selectedValue) {
+                    // Show this mvoie
+                    allPriceTags[i].parentElement.style.display = 'block'
+                } else{
+                    // Don't show this movie
+                    allPriceTags[i].parentElement.style.display = 'none'
+                }
+            }
+            }
+        })
+    </script>
+
 
 </body>
 
