@@ -13,7 +13,22 @@
     <script>
       // Task - On clicking of the button, destroy this button but create 2 new buttons in it's place.
 
-      // 1, 2, 3, 4, 5, 6, 7, 8, ..... 
+      const doubleBtn = document.querySelector('.double')
+
+      doubleBtn.addEventListener('click', function() {
+        let btn1 = document.createElement('button')
+        btn1.innerText = "Button-1"
+
+        let btn2 = document.createElement('button')
+        btn2.innerText = "Button-2"
+
+        const body = document.querySelector('body')
+
+        body.appendChild(btn1)
+        body.appendChild(btn2)
+
+        doubleBtn.remove()
+      })
     </script>
 </body>
 </html>
