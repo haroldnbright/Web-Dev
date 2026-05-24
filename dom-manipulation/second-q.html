@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF - 8" />
+    <meta http - equiv="X - UA - Compatible" content="IE = edge" />
+    <meta
+      name="viewport"
+      content="width = device - width, initial - scale = 1.0"
+    />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        padding-top: 5rem;
+      }
+
+      /* This property will be applicable to the element with blue class */
+      .blue {
+        background-color: blue;
+        box-shadow: 0px 0px 6px 5px;
+      }
+
+      .green {
+        background-color: green;
+        box-shadow: 0px 0px 6px 5px;
+      }
+
+      .red {
+        background-color: red;
+        box-shadow: 0px 0px 6px 5px;
+      }
+
+      .card {
+        border: 1px solid;
+        height: 10rem;
+        width: 10rem;
+        margin: 2rem;
+      }
+    </style>
+  </head>
+
+    <!-- An element can belong to more than one class as well -->
+    <body>
+        <div class="card" data-color="blue"></div>
+        <div class="card" data-color="red"></div>
+        <div class="card" data-color="blue"></div>
+        <div class="card" data-color="red"></div>
+        <div class="card" data-color="red"></div>
+        <div class="card" data-color="blue"></div>
+        <div class="card" data-color="green"></div>
+        <div class="card" data-color="blue"></div>
+        <div class="card" data-color="green"></div>
+        <div class="card" data-color="blue"></div>
+    </body>
+    <script>
+        // Write a JS program to fetch the data-color attribute of the card and on a double click event, and it should apply the CSS property for that particular color. 
+
+        // 1. Get the value of data-color attribute for each car element.
+        // 2. Add the data-color attribute value in the classList for that element.
+        // 3. After the background color change of the card element, make the data-color attribute value to be used.
+
+        const allCards = document.querySelectorAll('.card')
+
+        for(let i = 0; i < allCards.length; i++) {
+            //double click event - dblclick
+            allCards[i].addEventListener('dblclick', function(e) {
+                const colorAttr = e.target.getAttribute('data-color')
+
+                console.log(colorAttr)
+
+                //Add this colorAttr in the classList of the target element.
+                e.target.classList.add(colorAttr)
+
+                // console.log(e.target.classList)
+                e.target.setAttribute('data-color', 'used')
+            })
+        }
+    </script>
+</html>
