@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanban Board</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <!-- Navbar -->
+     <div class="toolbox-cont">
+        <div class="brand-section">
+            <h1 class="brand-title">
+                <i class="fa-solid fa-list-check"></i>
+                TaskFlow
+            </h1>
+        </div>
+     </div>
+
+     <!-- Priority Colors -->
+      <div class="toolbox-priority-cont">
+        <span class="filter-label">Filter By Priority:</span>
+        <div class="color-filters">
+            <div class="lightpink color"></div>
+            <div class="lightgreen color"></div>
+            <div class="lightblue color"></div>
+            <div class="black color"></div>
+        </div>
+      </div>
+
+      <!-- Add task and delete button -->
+       <div class="action-btn-cont">
+        <div class="add-btn" title="Add Task">
+            <i class="fa-solid fa-plus"></i>
+            Add Task
+        </div>
+
+        <div class="remove-btn" title="Delete Task">
+            <i class="fa-solid fa-trash"></i>
+            Delete Task
+        </div>
+       </div>
+
+       <!-- Task Ticket -->
+        <div class="main-cont">
+            <div class="ticket-color" style="background-color: lightpink;"></div>
+            <div class="ticket-id">123458</div>
+            <div class="task-area">Go to Gym</div>
+            <div class="ticket-lock">
+                <i class="fa-solid fa-lock"></i>
+            </div>
+        </div>
+
+        <div class="modal-cont">
+            <div class="modal-header">
+                <h2>Create New Task</h2>
+                <p>Enter your task details and select a priority level.</p>
+            </div>
+
+            <textarea class="textArea-cont" 
+            placeholder="Enter your task description here..."></textarea>
+
+            <div class="priotity-color-container">
+                <span class="priotiy-label">Select Priority:</span>
+                <div class="priority-grid">
+                    <div class="lightpink active" title="High Priority">
+                        <span>H</span>
+                    </div>
+                    <div class="lightgreen" title="Medium Priority">
+                        <span>M</span>
+                    </div>
+                    <div class="lightblue" title="Low Priority">
+                        <span>L</span>
+                    </div>
+                    <div class="black" title="Critical Priority">
+                        <span>C</span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <small>Press <kbd>Shift</kbd> to create task.</small>
+                </div>
+            </div>
+        </div>
+</body>
+</html>
