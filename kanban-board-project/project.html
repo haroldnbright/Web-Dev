@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kanban Board</title>
+    <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
@@ -15,9 +16,8 @@
                 TaskFlow
             </h1>
         </div>
-     </div>
 
-     <!-- Priority Colors -->
+        <!-- Priority Colors -->
       <div class="toolbox-priority-cont">
         <span class="filter-label">Filter By Priority:</span>
         <div class="color-filters">
@@ -41,14 +41,17 @@
         </div>
        </div>
 
+     </div>
+
        <!-- Task Ticket -->
         <div class="main-cont">
-            <div class="ticket-color" style="background-color: lightpink;"></div>
+            <!-- The ticket should only be visible after creation. -->
+            <!-- <div class="ticket-color" style="background-color: lightpink;"></div>
             <div class="ticket-id">123458</div>
             <div class="task-area">Go to Gym</div>
             <div class="ticket-lock">
                 <i class="fa-solid fa-lock"></i>
-            </div>
+            </div> -->
         </div>
 
         <div class="modal-cont">
@@ -81,5 +84,6 @@
                 </div>
             </div>
         </div>
+        <script src="script.js"></script>
 </body>
 </html>
