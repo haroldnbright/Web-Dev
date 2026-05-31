@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="root"></div>
+    
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <script>
+        // let helloElement = React.createElement("h1", { id : "h1-id", class : "h1-class"}, "Hello from React");
+
+        // let rootElement = ReactDOM.createRoot(document.querySelector(".root"))
+
+        // rootElement.render(helloElement)
+
+        // let helloElement = document.createElement("h1")
+        // helloElement.innerText = "Hello from JS"
+        // let divElement = document.querySelector(".root")
+        // divElement.appendChild(helloElement)
+
+
+        let nestedElement = React.createElement("div", {id:"parent"}, 
+            React.createElement("div", {id:"child"}, [
+                React.createElement("h1", {id : "heading-1"}, "India"),
+                React.createElement("h2", {id : "heading-2"}, "Delhi")
+            ])
+        );
+
+        let rootElement = ReactDOM.createRoot(document.querySelector(".root"))
+
+        rootElement.render(nestedElement)
+    </script>
+</body>
+</html>
+
+<!-- Task - Create an H1 element on webpage with "Hello World!" -->
+
+<!-- <div id="parent">
+    <div id="child">
+        <h1 id="heading-1">India</h1>
+        <h2 id="heading-2">Delhi</h2>
+    </div>
+</div> -->
