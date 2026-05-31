@@ -6,7 +6,7 @@ let taskArea = document.querySelector('.textArea-cont')
 let allPriorityColors = document.querySelectorAll('.priority-color')
 let toolBoxPriorityColors = document.querySelectorAll('.color')
 
-let isModalVisible = false 
+let isModalVisible = false
 
 const lockClass = 'fa-lock'
 const unlockClass = 'fa-lock-open'
@@ -17,13 +17,13 @@ let colors = ['lightpink', 'lightgreen', 'lightblue', 'black']
 let ticketsArray = []
 
 //If user is clicking on add-btn, then the modal should pop-up
-addBtn.addEventListener('click', function() {
+addBtn.addEventListener('click', function () {
     //! -> reverses the value, if it is TRUE, it will become false and vice-vera.
     isModalVisible = !isModalVisible
 
-    if(isModalVisible === true) {
+    if (isModalVisible === true) {
         //Make the modal visible.
-        modalCont.style.display = "flex"; 
+        modalCont.style.display = "flex";
     } else {
         //Hide the modal.
         modalCont.style.display = "none";
@@ -31,8 +31,8 @@ addBtn.addEventListener('click', function() {
 })
 
 //Event to create a ticket when user presses shift key.
-modalCont.addEventListener('keydown', function(event) {
-    if(event.key == "Shift") {
+modalCont.addEventListener('keydown', function (event) {
+    if (event.key == "Shift") {
         //Create a ticket.
         // let ticketCont = document.createElement('div')
         // ticketCont.setAttribute("class", "ticket-cont")
@@ -40,7 +40,7 @@ modalCont.addEventListener('keydown', function(event) {
         let ticketId = shortid() // UUID - Universally Unique Identifiers.
 
         //Get the task description from the text Area.
-        let taskText = taskArea.value 
+        let taskText = taskArea.value
 
         // ticketCont.innerHTML = `
         //     <div class="ticket-color" style="background-color: ${ticketColor}"></div>
@@ -55,7 +55,7 @@ modalCont.addEventListener('keydown', function(event) {
 
         createTicket(ticketId, ticketColor, taskText)
 
-        
+
         //After createing the ticket, make the modal container hidden.
         modalCont.style.display = "none"
         isModalVisible = false
@@ -69,8 +69,8 @@ function handleLock(ticket) {
     let ticketLockIcon = ticketLockCont.children[0]
     let ticketTaskArea = ticket.querySelector('.task-area')
 
-    ticketLockIcon.addEventListener('click', function() {
-        if(ticketLockIcon.classList.contains(lockClass)) {
+    ticketLockIcon.addEventListener('click', function () {
+        if (ticketLockIcon.classList.contains(lockClass)) {
             //remove fa-lock and add fa-lock-open
             ticketLockIcon.classList.remove(lockClass)
             ticketLockIcon.classList.add(unlockClass)
@@ -90,11 +90,11 @@ function handleLock(ticket) {
 
 
 // Moving the active class to the color which has been clicked by the user.
-allPriorityColors.forEach(function(colorElem) {
-    colorElem.addEventListener('click', function() {
-        allPriorityColors.forEach(function(priorityColor) {
+allPriorityColors.forEach(function (colorElem) {
+    colorElem.addEventListener('click', function () {
+        allPriorityColors.forEach(function (priorityColor) {
             priorityColor.classList.remove('active')
-        } ) 
+        })
 
         colorElem.classList.add('active')
         ticketColor = colorElem.classList[0]
@@ -106,13 +106,13 @@ allPriorityColors.forEach(function(colorElem) {
 function handleTicketColor(ticket) {
     let ticketColorBand = ticket.querySelector('.ticket-color')
 
-    ticketColorBand.addEventListener('click', function() {
+    ticketColorBand.addEventListener('click', function () {
         let currentColor = ticketColorBand.style.backgroundColor;
 
         //Find the index of current color in the list of colors.
         let currentColorIndex
-        for(let i = 0; i < colors.length; i++) {
-            if(colors[i] === currentColor) {
+        for (let i = 0; i < colors.length; i++) {
+            if (colors[i] === currentColor) {
                 currentColorIndex = i
             }
         }
@@ -124,14 +124,14 @@ function handleTicketColor(ticket) {
     })
 }
 
-toolBoxPriorityColors.forEach(function(colorElem) {
-    colorElem.addEventListener("click", function() {
+toolBoxPriorityColors.forEach(function (colorElem) {
+    colorElem.addEventListener("click", function () {
         let allTickets = document.querySelectorAll('.ticket-cont') // all the tickets in the document.
 
         let selectedColor = colorElem.classList[0] // the first element in the classList is the color of the div element.
-        allTickets.forEach(function(ticket) {
+        allTickets.forEach(function (ticket) {
             let ticketColorBand = ticket.querySelector('.ticket-color')
-            if(ticketColorBand.style.backgroundColor === selectedColor) {
+            if (ticketColorBand.style.backgroundColor === selectedColor) {
                 //This ticket should be visible.
                 ticket.style.display = "block"
             } else {
@@ -139,7 +139,7 @@ toolBoxPriorityColors.forEach(function(colorElem) {
             }
         })
     })
-}) 
+})
 
 function createTicket(ticketId, ticketColor, ticketTask) {
     let ticketCont = document.createElement('div')
@@ -170,9 +170,9 @@ function createTicket(ticketId, ticketColor, ticketTask) {
     localStorage.setItem("allTickets", JSON.stringify(ticketsArray)) // converting tickets array into string.
 
 
-     //Handle lock for this ticket.
-     handleLock(ticketCont)
-     handleTicketColor(ticketCont)
+    //Handle lock for this ticket.
+    handleLock(ticketCont)
+    handleTicketColor(ticketCont)
 }
 
 // On page reload, check if any data is present in the localStorage.
@@ -181,7 +181,7 @@ function init() {
     let ticketsData = localStorage.getItem("allTickets")
 
     let ticketDataArray = JSON.parse(ticketsData)
-    for(let i = 0; i < ticketDataArray.length; i++) {
+    for (let i = 0; i < ticketDataArray.length; i++) {
         let ticketData = ticketDataArray[i]
 
         createTicket(ticketData.id, ticketData.color, ticketData.ticketText)
